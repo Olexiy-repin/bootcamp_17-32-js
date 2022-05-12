@@ -1,25 +1,24 @@
 'use strict';
 
 /* ============== Метод map() ============== */
-// const ownMap = function (arr, callback) {
-//   const newArr = [];
+Array.prototype.ownMap = function (callback) {
+  const newArr = [];
 
-//   for (let i = 0; i < arr.length; i += 1) {
-//     newArr.push(callback(arr[i], i, arr));
-//   }
+  for (let i = 0; i < this.length; i += 1) {
+    newArr.push(callback(this[i], i, this));
+  }
 
-//   return newArr;
-// };
+  return newArr;
+};
 
-// const planets = ['Земля', 'Марс', 'Венера', 'Юпитер'];
+const planets = ['Земля', 'Марс', 'Венера', 'Юпитер'];
+console.log(planets);
 
-// const planetsInUpperCase = ownMap(planets, planet => planet.toUpperCase());
-// console.log(planetsInUpperCase); // ['ЗЕМЛЯ', 'МАРС', 'ВЕНЕРА', 'ЮПИТЕР']
+const planetsInUpperCase = planets.ownMap(planet => planet.toUpperCase());
+console.log(planetsInUpperCase); // ['ЗЕМЛЯ', 'МАРС', 'ВЕНЕРА', 'ЮПИТЕР']
 
-// const planetsInLowerCase = ownMap(planets, planet => planet.toLowerCase());
-// console.log(planetsInLowerCase); // ['земля', 'марс', 'венера', 'юпитер']
-
-// console.log(planets);
+const planetsInLowerCase = planets.ownMap(planet => planet.toLowerCase());
+console.log(planetsInLowerCase); // ['земля', 'марс', 'венера', 'юпитер']
 
 /* ============== Метод filter() ============== */
 // const ownFilter = function (arr, callback) {
