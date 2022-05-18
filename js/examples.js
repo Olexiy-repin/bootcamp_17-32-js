@@ -65,40 +65,66 @@
 ? removeItem(item) - получает товар и, если он есть, удаляет его из текущих.
 */
 
-class Storage {
-  constructor(items) {
-    this.items = items;
-  }
+// class Storage {
+//   constructor(items) {
+//     this.items = items;
+//   }
 
-  getItems() {
-    return this.items;
-  }
+//   getItems() {
+//     return this.items;
+//   }
 
-  addItem(item) {
-    this.items.push(item);
-  }
+//   addItem(item) {
+//     this.items.push(item);
+//   }
 
-  removeItem(item) {
-    const idxOfItem = this.items.indexOf(item);
+//   removeItem(item) {
+//     const idxOfItem = this.items.indexOf(item);
 
-    this.items.splice(idxOfItem, 1);
-  }
-}
+//     this.items.splice(idxOfItem, 1);
+//   }
+// }
 
-const storage = new Storage(['🍎', '🍋', '🍇', '🍑']);
+// const storage = new Storage(['🍎', '🍋', '🍇', '🍑']);
 
-console.table(storage.getItems()); // [ '🍎', '🍋', '🍇', '🍑' ]
+// console.table(storage.getItems()); // [ '🍎', '🍋', '🍇', '🍑' ]
 
-storage.addItem('🍌');
-console.table(storage.getItems()); // [ '🍎', '🍋', '🍇', '🍑', '🍌' ]
+// storage.addItem('🍌');
+// console.table(storage.getItems()); // [ '🍎', '🍋', '🍇', '🍑', '🍌' ]
 
-storage.removeItem('🍋');
-console.table(storage.getItems()); // [ '🍎', '🍇', '🍑', '🍌' ]
+// storage.removeItem('🍋');
+// console.table(storage.getItems()); // [ '🍎', '🍇', '🍑', '🍌' ]
 
 /*
 ? Напиши класс User который создаёт объект со свойствами login и email.
 ? Объяви приватные свойства #login и #email, доступ к которым сделай через геттер и сеттер login и email.
 */
+
+// class User {
+//   #login;
+//   #email;
+
+//   constructor({ login, email } = {}) {
+//     this.#login = login;
+//     this.#email = email;
+//   }
+
+//   get login() {
+//     return this.#login;
+//   }
+
+//   set login(newLogin) {
+//     this.#login = newLogin;
+//   }
+
+//   get email() {
+//     return this.#email;
+//   }
+
+//   set email(newEmail) {
+//     this.#email = newEmail;
+//   }
+// }
 
 // const mango = new User({
 //   login: 'Mango',
@@ -131,6 +157,37 @@ console.table(storage.getItems()); // [ '🍎', '🍇', '🍑', '🍌' ]
 ?
 ? Добавь методы addNote(note), removeNote(text) и updatePriority(text, newPriority).
 */
+// class Notes {
+//   static Priority = {
+//     LOW: 'low',
+//     NORMAL: 'normal',
+//     HIGH: 'high',
+//   };
+
+//   constructor(items) {
+//     this.items = items;
+//   }
+
+//   addNote(note) {
+//     this.items.push(note);
+//   }
+
+//   removeNote(text) {
+//     const idxOfNote = this.items.findIndex((el, idx, arr) => {
+//       return el.text === text;
+//     });
+
+//     this.items.splice(idxOfNote, 1);
+//   }
+
+//   updatePriority(text, newPriority) {
+//     const note = this.items.find((el, idx, arr) => {
+//       return el.text === text;
+//     });
+
+//     note.priority = newPriority;
+//   }
+// }
 
 // const myNotes = new Notes([]);
 
@@ -155,6 +212,16 @@ console.table(storage.getItems()); // [ '🍎', '🍇', '🍑', '🍌' ]
 ? По умолчанию значение свойства on должно быть false.
 */
 
+// class Toggle {
+//   constructor({ isOpen = false } = {}) {
+//     this.on = isOpen;
+//   }
+
+//   toggle() {
+//     this.on = !this.on;
+//   }
+// }
+
 // const firstToggle = new Toggle({ isOpen: true });
 
 // console.group('firstToggle');
@@ -172,5 +239,3 @@ console.table(storage.getItems()); // [ '🍎', '🍇', '🍑', '🍌' ]
 // secondToggle.toggle();
 // console.log(secondToggle.on);
 // console.groupEnd('secondToggle');
-// (function () {
-// })();

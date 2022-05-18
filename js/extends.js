@@ -2,131 +2,97 @@
 /*
  * Наследование с extends и super
  */
+// class User {
+//   #login;
+//   #email;
 
-class User {
-  #login;
-  #email;
+//   constructor({ firstName, lastName, age, login, email } = {}) {
+//     // this = {};
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.userAge = age;
+//     this.#login = login;
+//     this.#email = email;
+//     // return this;
+//   }
 
-  constructor({ firstName, lastName, age, login, email } = {}) {
-    // this = {};
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.userAge = age;
-    this.#login = login;
-    this.#email = email;
-    // return this;
-  }
+//   get login() {
+//     return this.#login;
+//   }
 
-  get login() {
-    return this.#login;
-  }
+//   set login(newLogin) {
+//     this.#login = newLogin;
+//   }
 
-  set login(newLogin) {
-    this.#login = newLogin;
-  }
+//   get email() {
+//     return this.#email;
+//   }
 
-  get email() {
-    return this.#email;
-  }
+//   set email(newEmail) {
+//     this.#email = newEmail;
+//   }
 
-  set email(newEmail) {
-    this.#email = newEmail;
-  }
+//   getFullName() {
+//     return `${this.#trimStr(this.firstName)} ${this.#trimStr(this.lastName)}`;
+//   }
 
-  getFullName() {
-    return `${this.#trimStr(this.firstName)} ${this.#trimStr(this.lastName)}`;
-  }
+//   #trimStr(str) {
+//     return str.trim();
+//   }
+// }
 
-  #trimStr(str) {
-    return str.trim();
-  }
-}
+// class Manager extends User {
+//   constructor(obj) {
+//     const { numberOfSales, ...otherProps } = obj;
 
-const user = new User({
-  firstName: 'Mable',
-  lastName: 'Cohen',
-  age: 30,
-  login: 'testLogin',
-  email: 'weni@owva.ai',
-});
+//     super(otherProps);
+//     this.numberOfSales = numberOfSales;
+//   }
 
-class Manager extends User {
-  constructor({ numberOfSales, ...otherProps } = {}) {
-    // this = super()
-    super(otherProps);
-    this.numberOfSales = numberOfSales;
-    // return this;
-  }
+//   getFullName() {
+//     return super.getFullName();
+//   }
 
-  doManagerWork() {
-    console.log('Занимаюсь продажами');
-  }
-}
+//   doManagerWork() {
+//     console.log('Занимаюсь продажами');
+//   }
+// }
 
-const manager = new Manager({
-  firstName: 'Addie',
-  lastName: 'Burgess',
-  age: 20,
-  login: 'someLogin',
-  email: 'uhmop@balninih.sd',
-  numberOfSales: 20,
-});
+// console.dir(Manager);
 
-console.log(manager);
-
-class Developer extends User {
-  constructor({ completedProjects, ...otherProps } = {}) {
-    // this = super();
-    super(otherProps);
-    this.completedProjects = completedProjects;
-    // return this;
-  }
-
-  doDeveloperWork() {
-    console.log('Пишу проэкт');
-  }
-}
-
-const developer = new Developer({
-  firstName: 'Bertha',
-  lastName: 'Byrd',
-  age: 22,
-  login: 'myLogin',
-  email: 'tudeoh@ede.fm',
-  completedProjects: 45,
-});
-
-// user = {
-//   firstName: 'Mable',
-//   lastName: 'Cohen',
-//   age: 30,
-//   login: 'testLogin',
-//   email: 'weni@owva.ai',
-//   getFullName() {}
-// };
-
-// manager = {
+// const manager = new Manager({
 //   firstName: 'Addie',
 //   lastName: 'Burgess',
 //   age: 20,
 //   login: 'someLogin',
 //   email: 'uhmop@balninih.sd',
 //   numberOfSales: 20,
+// });
 
-//   getFullName() {},
+// console.log(manager);
 
-//   doManagerWork() {}
-// };
+// console.log(manager.getFullName());
 
-// developer = {
+// class Developer extends User {
+//   constructor(obj) {
+//     const { completedProjects, ...otherProps } = obj;
+
+//     super(otherProps);
+//     this.completedProjects = completedProjects;
+//   }
+
+//   doDeveloperWork() {
+//     console.log('Пишу проэкт');
+//   }
+// }
+
+// const developer = new Developer({
 //   firstName: 'Bertha',
 //   lastName: 'Byrd',
 //   age: 22,
 //   login: 'myLogin',
 //   email: 'tudeoh@ede.fm',
 //   completedProjects: 45,
+// });
 
-//   getFullName() {},
-
-//   doDeveloperWork() {}
-// };
+// console.log(developer);

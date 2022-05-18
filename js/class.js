@@ -8,6 +8,7 @@
 
 class Person {
   #userEmail;
+  static test = 5;
 
   constructor({ firstName, lastName, age, hairColor, eyesColor, email } = {}) {
     // this = {}
@@ -63,3 +64,7 @@ person1.email = 'cusnuj@zopur.id';
 person1.changeFirstName('      Oleksii');
 
 console.log(person1);
+
+const obj = new Object();
+
+console.dir(Object);
