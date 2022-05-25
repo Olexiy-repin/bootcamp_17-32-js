@@ -1,0 +1,32 @@
+{
+  "name": "bootcamp_17-32",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "browserslist": "> 5%",
+  "scripts": {
+    "start": "npm test && npm run autoprefixer",
+    "build": "babel ./src/js/index.js -d ./build/js/",
+    "autoprefixer": "npx postcss ./src/css/*.css --use autoprefixer -d ./build/css/",
+    "test": "echo \"Hello\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Olexiy-repin/bootcamp_17-32-js.git"
+  },
+  "keywords": [],
+  "author": "Oleksii Repin <lyoharepin@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Olexiy-repin/bootcamp_17-32-js/issues"
+  },
+  "homepage": "https://github.com/Olexiy-repin/bootcamp_17-32-js#readme",
+  "dependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.0",
+    "@babel/preset-env": "^7.18.0",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^9.1.0"
+  }
+}

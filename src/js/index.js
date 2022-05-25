@@ -11,3 +11,7 @@ class User {
 }
 
 const user = new User();
+
+const message = 'Hello';
+
+console.log(message);
