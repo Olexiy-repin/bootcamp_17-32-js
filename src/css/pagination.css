@@ -15,7 +15,7 @@
   padding: 20px;
   box-shadow: 0 0 10px 0 #cccccc;
   overflow-y: auto;
-  transition: opacity 250ms linear;
+  transition: opacity 500ms linear;
 }
 
 .posts__title {

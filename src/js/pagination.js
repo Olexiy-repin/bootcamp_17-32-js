@@ -11,12 +11,6 @@ const jsonPlaceholderApi = new JsonPlaceholderApi();
 
 jsonPlaceholderApi.fetchPosts().then(data => {
   postsWrapperEl.innerHTML = createPostsCards(data);
-
-  if (document.readyState) {
-    postsWrapperEl.querySelectorAll('.posts__item').forEach(el => {
-      el.classList.add('appear');
-    });
-  }
 });
 
 const onLoadMoreBtnElClick = event => {
