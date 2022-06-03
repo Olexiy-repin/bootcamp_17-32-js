@@ -9,6 +9,24 @@ const loadMoreBtnEl = document.querySelector('.js-load-more');
 
 const unsplashApi = new UnsplashApi();
 
+const mutationObserver = new MutationObserver(mutationRecord => {
+  mutationRecord.forEach(mutation => {
+    const galleryElements = [...mutation.addedNodes].filter(
+      galleryNodeItem => galleryNodeItem.nodeName !== '#text'
+    );
+
+    setTimeout(() => {
+      galleryElements.forEach(galleryElement => {
+        galleryElement.classList.add('appear');
+      });
+    }, 0);
+  });
+});
+
+mutationObserver.observe(galleryListEl, {
+  childList: true,
+});
+
 unsplashApi
   .fetchRandomPhotos()
   .then(data => {
@@ -35,7 +53,6 @@ const onSearchFormSubmit = event => {
         return;
       }
 
-      console.log(data);
       galleryListEl.innerHTML = createGalleryCards(data.results);
 
       loadMoreBtnEl.classList.remove('is-hidden');
