@@ -17,11 +17,11 @@
 //? Что код выведет в консоли?
 // console.log(1);
 
-// setTimeout(() => console.log(2));
+// setTimeout(() => console.log(2), 0);
 
 // Promise.resolve().then(() => console.log(3));
 
-// Promise.resolve().then(() => setTimeout(() => console.log(4)));
+// Promise.resolve().then(() => setTimeout(() => console.log(4), 0));
 
 // Promise.resolve().then(() => console.log(5));
 
@@ -52,10 +52,30 @@
 //   console.log(str);
 
 //   console.log(counter);
+
+//   document.body.innerHTML = '<h2>Hi</h2>';
 // });
 
-// document.body.innerHTML = '<h3>Hello</h3>';
+// document.body.innerHTML = '<h1>Hello</h1>';
 
 // for (let i = 0; i < 1e4; i += 1) {
 //   console.log(i);
 // }
+
+//? Счетчик
+// let i = 0;
+
+// const count = () => {
+//   do {
+//     i += 1;
+//     document.body.innerHTML = i;
+//   } while (i % 10 !== 0);
+
+//   if (i < 1e4) {
+//     setTimeout(() => {
+//       count();
+//     }, 0);
+//   }
+// };
+
+// count();
