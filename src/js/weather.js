@@ -6,8 +6,17 @@ import createWeatherCard from '../templates/weather-card.hbs';
 const searchFormEl = document.querySelector('.js-search-form');
 const weatherWrapperEl = document.querySelector('.js-weather__wrapper');
 
-const convertSecondsToHoursAndMinutes = seconds => {
-  let date = new Date(seconds * 1000);
+const convertSecondsToHoursAndMinutes = (seconds, timezone) => {
+  const currentTimeZone = -new Date().getTimezoneOffset() * 60;
+  let diffTimeZone;
+
+  if (currentTimeZone > 0) {
+    diffTimeZone = timezone - currentTimeZone;
+  } else {
+    diffTimeZone = currentTimeZone - timezone;
+  }
+
+  const date = new Date((seconds + diffTimeZone) * 1000);
 
   return `${String(date.getHours()).padStart(2, 0)}:${String(
     date.getMinutes()
@@ -22,8 +31,14 @@ const onSearchFormSubmit = event => {
 
   fetchWeatherByCityName(searchQuery)
     .then(data => {
-      data.sys.sunrise = convertSecondsToHoursAndMinutes(data.sys.sunrise);
-      data.sys.sunset = convertSecondsToHoursAndMinutes(data.sys.sunset);
+      data.sys.sunrise = convertSecondsToHoursAndMinutes(
+        data.sys.sunrise,
+        data.timezone
+      );
+      data.sys.sunset = convertSecondsToHoursAndMinutes(
+        data.sys.sunset,
+        data.timezone
+      );
 
       console.log(data);
 
